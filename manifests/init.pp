@@ -10,7 +10,7 @@ class vagrant(
 ) {
   validate_bool($completion)
 
-  $ensure_pkg = $completion ? {
+  $ensure_completion = $completion ? {
     true    => 'present',
     default => 'absent',
   }
@@ -26,10 +26,12 @@ class vagrant(
     require => Package["Vagrant_${version}"],
   }
 
-  homebrew::tap { 'homebrew/completions': }
+  homebrew::tap { 'homebrew/completions':
+    ensure => $ensure_completion,
+  }
 
   package { 'vagrant-completion':
-    ensure   => $ensure_pkg,
+    ensure   => $ensure_completion,
     provider => 'homebrew',
     require  => Homebrew::Tap['homebrew/completions'],
   }
