@@ -5,7 +5,7 @@
 #   include vagrant
 
 class vagrant(
-  $version = '1.8.0',
+  $version = '1.8.1',
   $completion = false
 ) {
   validate_bool($completion)
