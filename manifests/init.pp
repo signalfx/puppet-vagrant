@@ -18,6 +18,7 @@ class vagrant(
   package { "Vagrant_${version}":
     ensure   => installed,
     source   => "https://releases.hashicorp.com/vagrant/${version}/vagrant_${version}.dmg",
+    install_options => ["-allowUntrusted"],
     provider => 'pkgdmg'
   }
 
