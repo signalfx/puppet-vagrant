@@ -5,7 +5,7 @@
 #   include vagrant
 
 class vagrant(
-  $version = '1.8.7',
+  $version = '2.0.2',
   $completion = false
 ) {
   validate_bool($completion)
@@ -18,7 +18,6 @@ class vagrant(
   package { "Vagrant_${version}":
     ensure   => installed,
     source   => "https://releases.hashicorp.com/vagrant/${version}/vagrant_${version}.dmg",
-    install_options => ["-allowUntrusted"],
     provider => 'pkgdmg'
   }
 
