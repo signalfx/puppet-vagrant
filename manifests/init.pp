@@ -17,7 +17,7 @@ class vagrant(
 
   package { "Vagrant_${version}":
     ensure   => installed,
-    source   => "https://releases.hashicorp.com/vagrant/${version}/vagrant_${version}.dmg",
+    source   => "https://releases.hashicorp.com/vagrant/${version}/vagrant_${version}_x86_64.dmg",
     provider => 'pkgdmg'
   }
 
